@@ -1,0 +1,20 @@
+version: "3.4"
+
+services:
+  svelte-client:
+    image: svelte-client
+    restart: on-failure
+    build:
+      context: ./svelte-client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "80:3000"
+    volumes:
+      - ./svelte-client:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.svelte-kit
+
+  # server
+  
+  # Database
